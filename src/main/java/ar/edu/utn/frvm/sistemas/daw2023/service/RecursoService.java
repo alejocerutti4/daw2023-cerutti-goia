@@ -4,7 +4,7 @@ import ar.edu.utn.frvm.sistemas.daw2023.model.Recurso;
 import ar.edu.utn.frvm.sistemas.daw2023.repository.RecursoRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class RecursoService implements IRecursoService{
@@ -14,9 +14,9 @@ public class RecursoService implements IRecursoService{
     public RecursoService(RecursoRepository recursoRepository) {
         this.recursoRepository = recursoRepository;
     }
-    public ArrayList<Recurso> getAll() {
+    public List<Recurso> getAll() {
 
-        return (ArrayList<Recurso>) this.recursoRepository.findAll();
+        return this.recursoRepository.findAll();
     }
 
     public Recurso getById(Integer id) {

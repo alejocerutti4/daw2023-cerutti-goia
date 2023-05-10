@@ -1,14 +1,14 @@
 package ar.edu.utn.frvm.sistemas.daw2023.controller;
 
-import ar.edu.utn.frvm.sistemas.daw2023.exception.CustomException;
 import ar.edu.utn.frvm.sistemas.daw2023.model.Recurso;
+import ar.edu.utn.frvm.sistemas.daw2023.exception.CustomException;
 import ar.edu.utn.frvm.sistemas.daw2023.service.IRecursoService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
-@RequestMapping("/recursos")
+@RequestMapping("/recursos/")
 public class RecursoController {
 
     private final IRecursoService recursoService;
@@ -18,7 +18,7 @@ public class RecursoController {
     }
     // get all method
     @GetMapping
-    public ArrayList<Recurso> getAll() {
+    public List<Recurso> getAll() {
         return this.recursoService.getAll();
     }
 
