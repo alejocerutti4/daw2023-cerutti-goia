@@ -1,0 +1,48 @@
+# Carpeta target generada por Maven
+target/
+
+# Carpeta de compilación de IDEs
+bin/
+out/
+.idea/
+*.iml
+*.class
+
+# Archivos de configuración generados
+application.properties
+application.yml
+
+# Logs
+logs/
+
+# Dependencias y archivos generados por Maven
+mvnw
+mvnw.cmd
+.mvn/
+mvn.lock
+pom.xml.tag
+pom.xml.releaseBackup
+release.properties
+
+# Archivos de Eclipse
+.classpath
+.project
+.settings/
+
+# Archivos de IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+*.log
+
+# Archivos de NetBeans
+nb-configuration.xml
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/nbactions.xml
+/nb-configuration.xml
+/catalog/
