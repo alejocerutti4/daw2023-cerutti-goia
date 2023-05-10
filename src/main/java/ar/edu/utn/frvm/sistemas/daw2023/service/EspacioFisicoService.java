@@ -1,7 +1,6 @@
 package ar.edu.utn.frvm.sistemas.daw2023.service;
 
 import ar.edu.utn.frvm.sistemas.daw2023.model.EspacioFisico;
-import ar.edu.utn.frvm.sistemas.daw2023.model.Recurso;
 import ar.edu.utn.frvm.sistemas.daw2023.repository.EspacioFisicoRepository;
 import org.springframework.stereotype.Service;
 
