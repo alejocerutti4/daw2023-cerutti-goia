@@ -2,7 +2,6 @@ package ar.edu.utn.frvm.sistemas.daw2023.controller;
 
 import ar.edu.utn.frvm.sistemas.daw2023.model.EspacioFisico;
 import ar.edu.utn.frvm.sistemas.daw2023.service.IEspacioFisicoService;
-import org.aspectj.apache.bcel.generic.RET;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
