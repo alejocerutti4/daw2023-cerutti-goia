@@ -1,12 +1,12 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2023-05-11T04:14:01.013Z",
+  "__export_date": "2023-05-11T04:42:28.546Z",
   "__export_source": "insomnia.desktop.app:v2023.2.0",
   "resources": [
     {
-      "_id": "req_fb4aca83703447b9b32fc171fe53026d",
-      "parentId": "fld_5acf83d22c344af5af52fb3b3e7e3678",
+      "_id": "req_d3ef481178b740c781f29b01c9c08beb",
+      "parentId": "fld_eedcc5fbbbe749f3b865e88263f0a8d2",
       "modified": 1683738798042,
       "created": 1683738798042,
       "url": "http://localhost:8080/recursos/",
@@ -28,8 +28,8 @@
       "_type": "request"
     },
     {
-      "_id": "fld_5acf83d22c344af5af52fb3b3e7e3678",
-      "parentId": "wrk_582e8692d8964c7bb3a2d02affb7d573",
+      "_id": "fld_eedcc5fbbbe749f3b865e88263f0a8d2",
+      "parentId": "wrk_77939b5975d24da0b5a9ed863ebe6eae",
       "modified": 1683739164664,
       "created": 1683739164664,
       "name": "Recurso",
@@ -40,18 +40,18 @@
       "_type": "request_group"
     },
     {
-      "_id": "wrk_582e8692d8964c7bb3a2d02affb7d573",
+      "_id": "wrk_77939b5975d24da0b5a9ed863ebe6eae",
       "parentId": null,
-      "modified": 1683778376735,
-      "created": 1683778376735,
+      "modified": 1683780031912,
+      "created": 1683780031912,
       "name": "InsomniaDw2023Reserva",
       "description": "",
       "scope": "design",
       "_type": "workspace"
     },
     {
-      "_id": "req_3b7cd1020376440ca23e9d3762bf04a9",
-      "parentId": "fld_5acf83d22c344af5af52fb3b3e7e3678",
+      "_id": "req_d6e197d9b089421e915e4ea4953aa070",
+      "parentId": "fld_eedcc5fbbbe749f3b865e88263f0a8d2",
       "modified": 1683738921395,
       "created": 1683738921395,
       "url": "http://localhost:8080/recursos/",
@@ -81,8 +81,8 @@
       "_type": "request"
     },
     {
-      "_id": "req_ded4811636f6403e925745ba1b8bc270",
-      "parentId": "fld_5acf83d22c344af5af52fb3b3e7e3678",
+      "_id": "req_5b33b09c006347eaaea92223c0171d47",
+      "parentId": "fld_eedcc5fbbbe749f3b865e88263f0a8d2",
       "modified": 1683739051549,
       "created": 1683739051549,
       "url": "http://localhost:8080/recursos/4",
@@ -112,8 +112,8 @@
       "_type": "request"
     },
     {
-      "_id": "req_70059483661b4e5b9d6e17d143549b68",
-      "parentId": "fld_5acf83d22c344af5af52fb3b3e7e3678",
+      "_id": "req_46d82c53668e47c98474837c6aa94975",
+      "parentId": "fld_eedcc5fbbbe749f3b865e88263f0a8d2",
       "modified": 1683739738431,
       "created": 1683739738431,
       "url": "http://localhost:8080/recursos/1",
@@ -135,8 +135,8 @@
       "_type": "request"
     },
     {
-      "_id": "req_dc1998fb73de4c13868bebc829af4f6f",
-      "parentId": "fld_5acf83d22c344af5af52fb3b3e7e3678",
+      "_id": "req_a713714a2e9842b19cc69b7f4602e897",
+      "parentId": "fld_eedcc5fbbbe749f3b865e88263f0a8d2",
       "modified": 1683739787608,
       "created": 1683739787608,
       "url": "http://localhost:8080/recursos/4",
@@ -158,8 +158,8 @@
       "_type": "request"
     },
     {
-      "_id": "req_531538b68b83446f890fef10b0eec910",
-      "parentId": "fld_89fce62e85b14d5e9aaf99345f6b6915",
+      "_id": "req_193a2672d9db40db94bd893f73d4972e",
+      "parentId": "fld_a6b124ed4b394b9980781d62d5249437",
       "modified": 1683739183045,
       "created": 1683739183045,
       "url": "http://localhost:8080/espaciosFisicos/",
@@ -181,8 +181,8 @@
       "_type": "request"
     },
     {
-      "_id": "fld_89fce62e85b14d5e9aaf99345f6b6915",
-      "parentId": "wrk_582e8692d8964c7bb3a2d02affb7d573",
+      "_id": "fld_a6b124ed4b394b9980781d62d5249437",
+      "parentId": "wrk_77939b5975d24da0b5a9ed863ebe6eae",
       "modified": 1683739178536,
       "created": 1683739178536,
       "name": "EspacioFisico",
@@ -193,8 +193,8 @@
       "_type": "request_group"
     },
     {
-      "_id": "req_23e6f4b20bdc4a26a6e69935601f3397",
-      "parentId": "fld_89fce62e85b14d5e9aaf99345f6b6915",
+      "_id": "req_60c7e67f490f45b7ad57745559fc90d0",
+      "parentId": "fld_a6b124ed4b394b9980781d62d5249437",
       "modified": 1683739252678,
       "created": 1683739252678,
       "url": "http://localhost:8080/espaciosFisicos/",
@@ -224,8 +224,8 @@
       "_type": "request"
     },
     {
-      "_id": "req_5fb881ff29ee4012bbcc6ab9119b73b8",
-      "parentId": "fld_89fce62e85b14d5e9aaf99345f6b6915",
+      "_id": "req_00090889e142476fb37d5b40ae4c864a",
+      "parentId": "fld_a6b124ed4b394b9980781d62d5249437",
       "modified": 1683739371114,
       "created": 1683739371114,
       "url": "http://localhost:8080/espaciosFisicos/4",
@@ -255,8 +255,8 @@
       "_type": "request"
     },
     {
-      "_id": "req_3850b3596b36445c9709005fa11ef070",
-      "parentId": "fld_89fce62e85b14d5e9aaf99345f6b6915",
+      "_id": "req_ab7ddde63a6c4385b45aff366dc2e16c",
+      "parentId": "fld_a6b124ed4b394b9980781d62d5249437",
       "modified": 1683739407721,
       "created": 1683739407721,
       "url": "http://localhost:8080/espaciosFisicos/5",
@@ -278,8 +278,8 @@
       "_type": "request"
     },
     {
-      "_id": "req_32b55ed3d27a47c78841129ef0031e3e",
-      "parentId": "fld_89fce62e85b14d5e9aaf99345f6b6915",
+      "_id": "req_400c4be927df4629a41e919cb01cccb7",
+      "parentId": "fld_a6b124ed4b394b9980781d62d5249437",
       "modified": 1683739763102,
       "created": 1683739763102,
       "url": "http://localhost:8080/espaciosFisicos/4",
@@ -301,8 +301,43 @@
       "_type": "request"
     },
     {
-      "_id": "env_b622fc060be24743a8b568cef367c0c4",
-      "parentId": "wrk_582e8692d8964c7bb3a2d02affb7d573",
+      "_id": "req_60152e75e53d4df0b32fabd109b486cf",
+      "parentId": "fld_996737fa549c43debcead4773bbc5e12",
+      "modified": 1683780103730,
+      "created": 1683780103730,
+      "url": "http://localhost:8080/roles/",
+      "name": "GET roles",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1683780103730,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_996737fa549c43debcead4773bbc5e12",
+      "parentId": "wrk_77939b5975d24da0b5a9ed863ebe6eae",
+      "modified": 1683780102654,
+      "created": 1683780102654,
+      "name": "Rol",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1683780102654,
+      "_type": "request_group"
+    },
+    {
+      "_id": "env_8ef42f2852c840a2a1740c17896be48c",
+      "parentId": "wrk_77939b5975d24da0b5a9ed863ebe6eae",
       "modified": 1683737983637,
       "created": 1683737983637,
       "name": "Base Environment",
@@ -314,8 +349,8 @@
       "_type": "environment"
     },
     {
-      "_id": "jar_a47f4c9b480c4a94b0e9e1b834f416a0",
-      "parentId": "wrk_582e8692d8964c7bb3a2d02affb7d573",
+      "_id": "jar_44220e620c7a4cada522c6753e684771",
+      "parentId": "wrk_77939b5975d24da0b5a9ed863ebe6eae",
       "modified": 1683737983640,
       "created": 1683737983640,
       "name": "Default Jar",
@@ -323,10 +358,10 @@
       "_type": "cookie_jar"
     },
     {
-      "_id": "spc_cb64b461daa54fff8087aa31ef5b3655",
-      "parentId": "wrk_582e8692d8964c7bb3a2d02affb7d573",
-      "modified": 1683778376738,
-      "created": 1683778376738,
+      "_id": "spc_bd7f6b64a64344fb899861289ba2a50c",
+      "parentId": "wrk_77939b5975d24da0b5a9ed863ebe6eae",
+      "modified": 1683780031913,
+      "created": 1683780031913,
       "fileName": "InsomniaDw2023Reserva",
       "contents": "",
       "contentType": "yaml",
