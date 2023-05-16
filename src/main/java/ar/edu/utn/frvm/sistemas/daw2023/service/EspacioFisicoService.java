@@ -44,4 +44,9 @@ public class EspacioFisicoService implements IEspacioFisicoService{
         this.espacioFisicoRepository.deleteById(id);
         return "Espacio fisico eliminado con id: " + id + ".";
     }
+
+    @Override
+    public List<EspacioFisico> getFiltroNombre(String nombre) {
+        return espacioFisicoRepository.findAllByNombreIgnoreCase(nombre);
+    }
 }

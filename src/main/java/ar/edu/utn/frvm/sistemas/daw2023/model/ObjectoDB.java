@@ -9,7 +9,7 @@ import lombok.*;
 
 @MappedSuperclass
 @Data
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @AllArgsConstructor
 public class ObjectoDB {
     @Id

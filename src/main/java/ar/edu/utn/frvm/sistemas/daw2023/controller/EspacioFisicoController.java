@@ -25,6 +25,11 @@ public class EspacioFisicoController {
         return this.espacioFisicoService.getById(id);
     }
 
+    @GetMapping(value = "/search", params = "nombre")
+    public List<EspacioFisico> getFiltroNombre(@RequestParam(required=true) String nombre){
+        return this.espacioFisicoService.getFiltroNombre(nombre);
+    }
+
     @PostMapping
     public EspacioFisico add(@RequestBody EspacioFisico espacioFisico){
         return this.espacioFisicoService.add(espacioFisico);
