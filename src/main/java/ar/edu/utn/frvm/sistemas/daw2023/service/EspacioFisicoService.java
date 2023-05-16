@@ -32,17 +32,11 @@ public class EspacioFisicoService implements IEspacioFisicoService{
 
     @Override
     public EspacioFisico update(Integer id, EspacioFisico espacioFisico) {
-        EspacioFisico espacioFisicoToUpdate = this.espacioFisicoRepository.findById(id).orElse(null);
 
-        if(espacioFisicoToUpdate != null){
-            espacioFisicoToUpdate.setNombre(espacioFisico.getNombre());
-            espacioFisicoToUpdate.setDescripcion(espacioFisico.getDescripcion());
-            espacioFisicoToUpdate.setCapacidad(espacioFisico.getCapacidad());
-            espacioFisicoToUpdate.setRecursos(espacioFisico.getRecursos());
-            espacioFisicoToUpdate.setEstado(espacioFisico.getEstado());
-            return this.espacioFisicoRepository.save(espacioFisicoToUpdate);
-        }
-        return null;
+        // seteo el id por las dudas de que en el recurso no lo tenga y evitar que se haga un post.
+        espacioFisico.setId(id);
+        // El save funciona como un update si el objeto tiene id, si no tiene el id funciona como un insert
+        return this.espacioFisicoRepository.save(espacioFisico);
     }
 
     @Override

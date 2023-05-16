@@ -29,14 +29,10 @@ public class RecursoService implements IRecursoService{
 
     public Recurso update(Integer id, Recurso recurso) {
 
-        Recurso recursoToUpdate = this.recursoRepository.findById(id).orElse(null);
-
-        if(recursoToUpdate != null){
-            recursoToUpdate.setNombre(recurso.getNombre());
-            recursoToUpdate.setDescripcion(recurso.getDescripcion());
-            return this.recursoRepository.save(recursoToUpdate);
-        }
-        return null;
+        // seteo el id por las dudas de que en el recurso no lo tenga y evitar que se haga un post.
+        recurso.setId(id);
+        // El save funciona como un update si el objeto tiene id, si no tiene el id funciona como un insert
+        return this.recursoRepository.save(recurso);
     }
 
     public String delete(Integer id) {
