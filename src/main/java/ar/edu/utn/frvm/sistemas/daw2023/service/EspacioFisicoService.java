@@ -49,4 +49,14 @@ public class EspacioFisicoService implements IEspacioFisicoService{
     public List<EspacioFisico> getFiltroNombre(String nombre) {
         return espacioFisicoRepository.findAllByNombreIgnoreCase(nombre);
     }
+
+    @Override
+    public List<EspacioFisico> getFiltroCapacidad(Integer capacidad) {
+        return espacioFisicoRepository.findAllByCapacidad(capacidad);
+    }
+
+    @Override
+    public List<EspacioFisico> getFiltroNombreCapacidad(String nombre, Integer capacidad) {
+        return espacioFisicoRepository.findAllByNombreIgnoreCaseAndCapacidad(nombre, capacidad);
+    }
 }

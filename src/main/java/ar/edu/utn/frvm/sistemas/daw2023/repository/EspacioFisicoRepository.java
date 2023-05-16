@@ -11,4 +11,8 @@ public interface EspacioFisicoRepository extends JpaRepository<EspacioFisico, In
     List<EspacioFisico> findAllByNombre(String nombre);
     List<EspacioFisico> findAllByNombreIgnoreCase(String nombre);
     List<EspacioFisico> findAllByNombreIgnoreCaseContains(String nombre);
+
+    List<EspacioFisico> findAllByCapacidad(Integer capacidad);
+
+    List<EspacioFisico> findAllByNombreIgnoreCaseAndCapacidad(String nombre, Integer capacidad);
 }

@@ -30,6 +30,16 @@ public class EspacioFisicoController {
         return this.espacioFisicoService.getFiltroNombre(nombre);
     }
 
+    @GetMapping(value = "/search", params = "capacidad")
+    public List<EspacioFisico> getFiltroCapacidad(@RequestParam(required=true) Integer capacidad){
+        return this.espacioFisicoService.getFiltroCapacidad(capacidad);
+    }
+
+    @GetMapping(value = "/search", params = {"nombre", "capacidad"})
+    public List<EspacioFisico> getFiltroNombreCapacidad(@RequestParam(name = "nombre", required=true) String nombre, @RequestParam(name = "capacidad", required=true) Integer capacidad){
+        return this.espacioFisicoService.getFiltroNombreCapacidad(nombre, capacidad);
+    }
+
     @PostMapping
     public EspacioFisico add(@RequestBody EspacioFisico espacioFisico){
         return this.espacioFisicoService.add(espacioFisico);
