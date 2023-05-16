@@ -3,7 +3,10 @@ package ar.edu.utn.frvm.sistemas.daw2023.controller;
 import ar.edu.utn.frvm.sistemas.daw2023.model.Recurso;
 import ar.edu.utn.frvm.sistemas.daw2023.exception.CustomException;
 import ar.edu.utn.frvm.sistemas.daw2023.service.IRecursoService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+
+
 
 import java.util.List;
 
@@ -30,6 +33,11 @@ public class RecursoController {
         } catch (Exception e) {
             throw new CustomException(404, "Recurso no encontrado");
         }
+    }
+
+    @GetMapping(params="page")
+    public Iterable<Recurso> getAllPaginado(@RequestParam Pageable p) {
+        return this.recursoService.getAllPaginado(p);
     }
 
     @PostMapping
