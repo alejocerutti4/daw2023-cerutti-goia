@@ -30,7 +30,7 @@ release.properties
 .settings/
 
 # Archivos de IntelliJ IDEA
-misc.xml
+.idea/misc.xml
 *.iml
 *.ipr
 *.iws
@@ -47,3 +47,4 @@ nb-configuration.xml
 /nbactions.xml
 /nb-configuration.xml
 /catalog/
+/.idea/
