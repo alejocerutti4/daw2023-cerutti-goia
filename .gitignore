@@ -30,7 +30,7 @@ release.properties
 .settings/
 
 # Archivos de IntelliJ IDEA
-misc.xml
+.idea/misc.xml
 *.iml
 *.ipr
 *.iws
