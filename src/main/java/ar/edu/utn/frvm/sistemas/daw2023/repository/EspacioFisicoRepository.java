@@ -11,10 +11,10 @@ import java.util.List;
 @Repository
 public interface EspacioFisicoRepository extends JpaRepository<EspacioFisico, Integer> {
     List<EspacioFisico> findAllByNombre(String nombre);
-    List<EspacioFisico> findAllByNombreIgnoreCase(String nombre, Pageable p);
-    Page<EspacioFisico> findAllByNombreIgnoreCaseContains(String nombre, Pageable p);
+    List<EspacioFisico> findAllByNombreIgnoreCase(String nombre, Pageable page);
+    Page<EspacioFisico> findAllByNombreIgnoreCaseContains(String nombre, Pageable page);
 
-    List<EspacioFisico> findAllByCapacidad(Integer capacidad);
+    Page<EspacioFisico> findAllByCapacidad(Integer capacidad, Pageable page);
 
-    List<EspacioFisico> findAllByNombreIgnoreCaseAndCapacidad(String nombre, Integer capacidad);
+    Page<EspacioFisico> findAllByNombreIgnoreCaseAndCapacidad(String nombre, Integer capacidad, Pageable page);
 }

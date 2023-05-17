@@ -28,18 +28,18 @@ public class EspacioFisicoController {
     }
 
     @GetMapping(value = "/search", params = {"nombre", "page"})
-    public Page<EspacioFisico> getFiltroNombre(Pageable p, @RequestParam(name="nombre",required=true) String nombre){
-        return this.espacioFisicoService.getFiltroNombre(nombre, p);
+    public Page<EspacioFisico> getFiltroNombre(Pageable page, @RequestParam(name="nombre",required=true) String nombre){
+        return this.espacioFisicoService.getFiltroNombre(nombre, page);
     }
 
-    @GetMapping(value = "/search", params = "capacidad")
-    public List<EspacioFisico> getFiltroCapacidad(@RequestParam(required=true) Integer capacidad){
-        return this.espacioFisicoService.getFiltroCapacidad(capacidad);
+    @GetMapping(value = "/search", params = {"capacidad", "page"})
+    public Page<EspacioFisico> getFiltroCapacidad(Pageable page, @RequestParam(required=true) Integer capacidad){
+        return this.espacioFisicoService.getFiltroCapacidad(capacidad, page);
     }
 
-    @GetMapping(value = "/search", params = {"nombre", "capacidad"})
-    public List<EspacioFisico> getFiltroNombreCapacidad(@RequestParam(name = "nombre", required=true) String nombre, @RequestParam(name = "capacidad", required=true) Integer capacidad){
-        return this.espacioFisicoService.getFiltroNombreCapacidad(nombre, capacidad);
+    @GetMapping(value = "/search", params = {"nombre", "capacidad", "page"})
+    public Page<EspacioFisico> getFiltroNombreCapacidad(Pageable page, @RequestParam(name = "nombre", required=true) String nombre, @RequestParam(name = "capacidad", required=true) Integer capacidad){
+        return this.espacioFisicoService.getFiltroNombreCapacidad(nombre, capacidad, page);
     }
 
     @PostMapping
