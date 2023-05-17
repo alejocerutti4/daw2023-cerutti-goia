@@ -13,6 +13,7 @@ INSERT INTO recurso (id, nombre, descripcion) VALUES ('11', 'Sofá', 'Sofá de c
 INSERT INTO recurso (id, nombre, descripcion) VALUES ('12', 'Proyector HD', 'Proyector HD marca Epson');
 INSERT INTO recurso (id, nombre, descripcion) VALUES ('13', 'Pizarra interactiva', 'Pizarra interactiva SMART Board');
 INSERT INTO recurso (id, nombre, descripcion) VALUES ('14', 'Computadora de escritorio', 'Dell OptiPlex 3070');
+INSERT INTO recurso (id, nombre, descripcion) VALUES ('15', 'Proyector', 'Proyector generico');
 INSERT INTO recurso (id, nombre, descripcion) VALUES ('16', 'Impresora', 'Impresora láser');
 INSERT INTO recurso (id, nombre, descripcion) VALUES ('17', 'Pizarra magnética', 'Pizarra magnética negra');
 INSERT INTO recurso (id, nombre, descripcion) VALUES ('18', 'Silla ergonómica', 'Silla ergonómica ajustable');
