@@ -2,6 +2,7 @@ package ar.edu.utn.frvm.sistemas.daw2023.controller;
 
 import ar.edu.utn.frvm.sistemas.daw2023.model.EspacioFisico;
 import ar.edu.utn.frvm.sistemas.daw2023.service.IEspacioFisicoService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ public class EspacioFisicoController {
     }
 
     @GetMapping(value = "/search", params = {"nombre", "page"})
-    public Iterable<EspacioFisico> getFiltroNombre(Pageable p, @RequestParam(name="nombre",required=true) String nombre){
+    public Page<EspacioFisico> getFiltroNombre(Pageable p, @RequestParam(name="nombre",required=true) String nombre){
         return this.espacioFisicoService.getFiltroNombre(nombre, p);
     }
 

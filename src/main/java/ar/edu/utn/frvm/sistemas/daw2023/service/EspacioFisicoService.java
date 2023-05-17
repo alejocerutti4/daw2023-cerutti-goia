@@ -2,6 +2,7 @@ package ar.edu.utn.frvm.sistemas.daw2023.service;
 
 import ar.edu.utn.frvm.sistemas.daw2023.model.EspacioFisico;
 import ar.edu.utn.frvm.sistemas.daw2023.repository.EspacioFisicoRepository;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -47,7 +48,7 @@ public class EspacioFisicoService implements IEspacioFisicoService{
     }
 
     @Override
-    public Iterable<EspacioFisico> getFiltroNombre(String nombre, Pageable p) {
+    public Page<EspacioFisico> getFiltroNombre(String nombre, Pageable p) {
         return espacioFisicoRepository.findAllByNombreIgnoreCaseContains(nombre, p);
     }
 
