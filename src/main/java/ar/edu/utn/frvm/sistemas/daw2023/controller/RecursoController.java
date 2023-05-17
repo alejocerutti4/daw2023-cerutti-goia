@@ -36,7 +36,7 @@ public class RecursoController {
     }
 
     @GetMapping(params="page")
-    public Iterable<Recurso> getAllPaginado(@RequestParam Pageable p) {
+    public Iterable<Recurso> getAllPaginado(Pageable p) {
         return this.recursoService.getAllPaginado(p);
     }
 
