@@ -75,3 +75,8 @@ INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('19
 INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('20', '12');
 INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('21', '13');
 INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('22', '17');
+
+-- Tabla de roles
+INSERT INTO roles (id, nombre, descripcion) VALUES ('1', 'Docente', 'Docente de la facultad');
+INSERT INTO roles (id, nombre, descripcion) VALUES ('2', 'Estudiante', 'Estudiante de la facultad');
+INSERT INTO roles (id, nombre, descripcion) VALUES ('3', 'Administrador', 'Administrador del sistema');

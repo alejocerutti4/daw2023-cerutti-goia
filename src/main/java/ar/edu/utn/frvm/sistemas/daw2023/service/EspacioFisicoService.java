@@ -18,6 +18,10 @@ public class EspacioFisicoService implements IEspacioFisicoService{
     }
 
     @Override
+    public Page<EspacioFisico> getAll(Pageable page) {
+        return espacioFisicoRepository.findAll(page);
+    }
+    @Override
     public List<EspacioFisico> getAll() {
         return espacioFisicoRepository.findAll();
     }

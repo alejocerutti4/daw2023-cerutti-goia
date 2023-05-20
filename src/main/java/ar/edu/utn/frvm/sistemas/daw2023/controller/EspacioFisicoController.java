@@ -18,8 +18,8 @@ public class EspacioFisicoController {
     }
 
     @GetMapping
-    public List<EspacioFisico> getAll(){
-        return this.espacioFisicoService.getAll();
+    public Page<EspacioFisico> getAll(Pageable page){
+        return this.espacioFisicoService.getAll(page);
     }
 
     @GetMapping("/{id}")
