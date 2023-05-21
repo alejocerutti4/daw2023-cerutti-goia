@@ -61,4 +61,11 @@ public class EspacioFisicoService implements IEspacioFisicoService{
     public Page<EspacioFisico> getFiltroNombreCapacidad(String nombre, Integer capacidad, Pageable page) {
         return espacioFisicoRepository.findAllByNombreIgnoreCaseAndCapacidad(nombre, capacidad, page);
     }
+
+    @Override
+    public boolean sePuedeReservar(Integer id){
+        if(this.getById(id).getEstado().getNombre().equals("Habilitado")){
+            return true;
+        }else return false;
+    }
 }

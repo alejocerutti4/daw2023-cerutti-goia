@@ -1,17 +1,22 @@
 package ar.edu.utn.frvm.sistemas.daw2023.service;
 
+import ar.edu.utn.frvm.sistemas.daw2023.exception.CustomException;
 import ar.edu.utn.frvm.sistemas.daw2023.model.Reserva;
 import ar.edu.utn.frvm.sistemas.daw2023.repository.ReservaRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 public class ReservaService implements IReservaService{
     private final ReservaRepository reservaRepository;
+    private final IEspacioFisicoService espacioFisicoService;
 
-    public ReservaService(ReservaRepository reservaRepository) {
+    public ReservaService(ReservaRepository reservaRepository, IEspacioFisicoService espacioFisicoService) {
         this.reservaRepository = reservaRepository;
+        this.espacioFisicoService = espacioFisicoService;
     }
 
     @Override
@@ -21,7 +26,9 @@ public class ReservaService implements IReservaService{
 
     @Override
     public Reserva add(Reserva reserva) {
-        return reservaRepository.save(reserva);
+        if (estaDisponible(reserva.getEspacioFisico().getId())){
+            return reservaRepository.save(reserva);
+        }else throw new CustomException(400,"No se pudo realizar la reserva");
     }
 
     @Override
@@ -39,5 +46,12 @@ public class ReservaService implements IReservaService{
     @Override
     public Page<Reserva> getAll(Pageable p) {
         return reservaRepository.findAll(p);
+    }
+
+    public boolean estaDisponible(Integer idEspacioFisico){
+        if (this.espacioFisicoService.sePuedeReservar(idEspacioFisico)){
+            return true;
+        }else return false;
+
     }
 }

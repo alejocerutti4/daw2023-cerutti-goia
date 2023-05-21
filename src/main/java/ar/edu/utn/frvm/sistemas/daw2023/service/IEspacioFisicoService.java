@@ -11,5 +11,5 @@ public interface IEspacioFisicoService extends IService<EspacioFisico>{
     public Page<EspacioFisico> getFiltroCapacidad(Integer capacidad, Pageable page);
 
     public Page<EspacioFisico> getFiltroNombreCapacidad(String nombre, Integer capacidad, Pageable page);
-
+    public boolean sePuedeReservar(Integer id);
 }
