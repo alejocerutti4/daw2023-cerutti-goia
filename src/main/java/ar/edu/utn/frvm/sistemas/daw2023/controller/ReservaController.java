@@ -1,10 +1,13 @@
 package ar.edu.utn.frvm.sistemas.daw2023.controller;
 
 import ar.edu.utn.frvm.sistemas.daw2023.exception.CustomException;
+import ar.edu.utn.frvm.sistemas.daw2023.exception.ErrorResponse;
 import ar.edu.utn.frvm.sistemas.daw2023.model.Reserva;
 import ar.edu.utn.frvm.sistemas.daw2023.service.IReservaService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,8 +34,14 @@ public class ReservaController {
     }
 
     @PostMapping
-    public Reserva add(@RequestBody Reserva reserva){
-        return this.reservaService.add(reserva);
+    public ResponseEntity<Object> add(@RequestBody Reserva reserva) {
+        try {
+            Reserva addedReserva = this.reservaService.add(reserva);
+            return ResponseEntity.ok(addedReserva);
+        } catch (Exception e) {
+            ErrorResponse errorResponse = new ErrorResponse(42, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 
     @PutMapping("/{id}")
