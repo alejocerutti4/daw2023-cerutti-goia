@@ -24,7 +24,7 @@ public class RolController {
     // get all method
     @GetMapping
     public Page<Rol> getAll(Pageable p) {
-        return this.rolService.getAllPaginado(p);
+        return this.rolService.getAll(p);
     }
     // get one method
     @GetMapping("/{id}")

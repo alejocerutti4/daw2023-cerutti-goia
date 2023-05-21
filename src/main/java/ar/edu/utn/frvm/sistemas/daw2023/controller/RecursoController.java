@@ -3,6 +3,7 @@ package ar.edu.utn.frvm.sistemas.daw2023.controller;
 import ar.edu.utn.frvm.sistemas.daw2023.model.Recurso;
 import ar.edu.utn.frvm.sistemas.daw2023.exception.CustomException;
 import ar.edu.utn.frvm.sistemas.daw2023.service.IRecursoService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,11 +20,6 @@ public class RecursoController {
     public RecursoController(IRecursoService recursoService) {
         this.recursoService = recursoService;
     }
-    // get all method
-    @GetMapping
-    public List<Recurso> getAll() {
-        return this.recursoService.getAll();
-    }
 
     // get one method
     @GetMapping("/{id}")
@@ -35,9 +31,9 @@ public class RecursoController {
         }
     }
 
-    @GetMapping(params="page")
-    public Iterable<Recurso> getAllPaginado(Pageable p) {
-        return this.recursoService.getAllPaginado(p);
+    @GetMapping
+    public Page<Recurso> getAll(Pageable p) {
+        return this.recursoService.getAll(p);
     }
 
     @PostMapping

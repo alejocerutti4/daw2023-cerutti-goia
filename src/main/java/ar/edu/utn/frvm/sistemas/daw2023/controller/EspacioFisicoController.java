@@ -1,5 +1,6 @@
 package ar.edu.utn.frvm.sistemas.daw2023.controller;
 
+import ar.edu.utn.frvm.sistemas.daw2023.exception.CustomException;
 import ar.edu.utn.frvm.sistemas.daw2023.model.EspacioFisico;
 import ar.edu.utn.frvm.sistemas.daw2023.service.IEspacioFisicoService;
 import org.springframework.data.domain.Page;
@@ -24,7 +25,11 @@ public class EspacioFisicoController {
 
     @GetMapping("/{id}")
     public EspacioFisico getById(@PathVariable Integer id){
-        return this.espacioFisicoService.getById(id);
+        try {
+            return this.espacioFisicoService.getById(id);
+        } catch (Exception e) {
+            throw new CustomException(404, "Espacio fisico no encontrado");
+        }
     }
 
     @GetMapping(value = "/search", params = {"nombre", "page"})

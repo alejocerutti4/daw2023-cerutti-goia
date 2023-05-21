@@ -12,5 +12,4 @@ public interface IEspacioFisicoService extends IService<EspacioFisico>{
 
     public Page<EspacioFisico> getFiltroNombreCapacidad(String nombre, Integer capacidad, Pageable page);
 
-    public Page<EspacioFisico> getAll(Pageable page);
 }

@@ -21,10 +21,6 @@ public class EspacioFisicoService implements IEspacioFisicoService{
     public Page<EspacioFisico> getAll(Pageable page) {
         return espacioFisicoRepository.findAll(page);
     }
-    @Override
-    public List<EspacioFisico> getAll() {
-        return espacioFisicoRepository.findAll();
-    }
 
     @Override
     public EspacioFisico getById(Integer id) {

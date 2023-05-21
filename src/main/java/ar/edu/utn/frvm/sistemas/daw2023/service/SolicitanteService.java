@@ -18,11 +18,6 @@ public class SolicitanteService implements ISolicitanteService{
     }
 
     @Override
-    public List<Solicitante> getAll() {
-        return this.solicitanteRepository.findAll();
-    }
-
-    @Override
     public Solicitante getById(Integer id) {
         return solicitanteRepository.findById(id).orElse(null);
     }
@@ -45,7 +40,7 @@ public class SolicitanteService implements ISolicitanteService{
     }
 
     @Override
-    public Page<Solicitante> getAllPaginado(Pageable page) {
+    public Page<Solicitante> getAll(Pageable page) {
         return this.solicitanteRepository.findAll(page);
     }
 }

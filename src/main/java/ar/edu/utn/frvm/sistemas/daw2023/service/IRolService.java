@@ -5,6 +5,5 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface IRolService extends IService<Rol> {
-    Page<Rol> getAllPaginado(Pageable p);
 
 }

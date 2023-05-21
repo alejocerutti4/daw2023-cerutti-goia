@@ -23,11 +23,6 @@ public class RolService implements IRolService{
     }
 
     @Override
-    public List<Rol> getAll() {
-        return rolRepository.findAll();
-    }
-
-    @Override
     public Rol getById(Integer id) {
         return rolRepository.findById(id).orElse(null);
     }
@@ -45,7 +40,7 @@ public class RolService implements IRolService{
     }
 
     @Override
-    public Page<Rol> getAllPaginado(Pageable p) {
+    public Page<Rol> getAll(Pageable p) {
         return rolRepository.findAll(p);
     }
 

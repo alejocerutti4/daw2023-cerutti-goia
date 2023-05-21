@@ -2,6 +2,7 @@ package ar.edu.utn.frvm.sistemas.daw2023.service;
 
 import ar.edu.utn.frvm.sistemas.daw2023.model.Recurso;
 import ar.edu.utn.frvm.sistemas.daw2023.repository.RecursoRepository;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,6 @@ public class RecursoService implements IRecursoService{
 
     public RecursoService(RecursoRepository recursoRepository) {
         this.recursoRepository = recursoRepository;
-    }
-    public List<Recurso> getAll() {
-
-        return this.recursoRepository.findAll();
     }
 
     public Recurso getById(Integer id) {
@@ -40,7 +37,7 @@ public class RecursoService implements IRecursoService{
         this.recursoRepository.deleteById(id);
         return "Recurso eliminado con id: " + id + ".";
     }
-    public Iterable<Recurso> getAllPaginado(Pageable p){
+    public Page<Recurso> getAll(Pageable p){
         return this.recursoRepository.findAll(p);
     }
 }

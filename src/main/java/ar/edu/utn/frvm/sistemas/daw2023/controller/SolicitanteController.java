@@ -17,7 +17,7 @@ public class SolicitanteController {
     }
     @GetMapping
     public Page<Solicitante> getAll(Pageable page){
-        return this.solicitanteService.getAllPaginado(page);
+        return this.solicitanteService.getAll(page);
     }
 
     @GetMapping("/{id}")
