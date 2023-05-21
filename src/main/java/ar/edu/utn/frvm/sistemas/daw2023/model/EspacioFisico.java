@@ -7,7 +7,7 @@ import lombok.*;
 
 import java.util.List;
 
-@Entity
+@Entity(name = "espacio_fisico")
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -20,5 +20,5 @@ public class EspacioFisico extends ObjectoDB{
     private List<Recurso> recursos;
 
     @ManyToOne
-    private EstadoEspacioFisico estado;
+    private Estado estado;
 }

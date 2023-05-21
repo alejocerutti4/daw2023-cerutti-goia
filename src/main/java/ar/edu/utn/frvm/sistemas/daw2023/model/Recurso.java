@@ -4,7 +4,7 @@ package ar.edu.utn.frvm.sistemas.daw2023.model;
 import jakarta.persistence.Entity;
 import lombok.*;
 
-@Entity(name = "recurso")
+@Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @RequiredArgsConstructor

@@ -77,6 +77,18 @@ INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('21
 INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('22', '17');
 
 -- Tabla de roles
-INSERT INTO roles (id, nombre, descripcion) VALUES ('1', 'Docente', 'Docente de la facultad');
-INSERT INTO roles (id, nombre, descripcion) VALUES ('2', 'Estudiante', 'Estudiante de la facultad');
-INSERT INTO roles (id, nombre, descripcion) VALUES ('3', 'Administrador', 'Administrador del sistema');
+INSERT INTO rol (id, nombre, descripcion) VALUES ('1', 'Docente', 'Docente de la facultad');
+INSERT INTO rol (id, nombre, descripcion) VALUES ('2', 'Estudiante', 'Estudiante de la facultad');
+INSERT INTO rol (id, nombre, descripcion) VALUES ('3', 'Administrador', 'Administrador del sistema');
+
+
+-- Tabla de solicitantes
+INSERT INTO solicitante (id, nombre, apellido, legajo, nro_telefono, email, rol_id) VALUES ('1', 'Juan', 'Pérez', '12345', '5555555555', 'juanperez@example.com', '1');
+INSERT INTO solicitante (id, nombre, apellido, legajo, nro_telefono, email, rol_id) VALUES ('2', 'María', 'González', '98765', '4444444444', 'mariagonzalez@example.com', '1');
+INSERT INTO solicitante (id, nombre, apellido, legajo, nro_telefono, email, rol_id) VALUES ('3', 'Luis', 'Martínez', '54321', '6666666666', 'luismartinez@example.com', '2');
+INSERT INTO solicitante (id, nombre, apellido, legajo, nro_telefono, email, rol_id) VALUES ('4', 'Ana', 'López', '24680', '7777777777', 'analorez@example.com', '2');
+INSERT INTO solicitante (id, nombre, apellido, legajo, nro_telefono, email, rol_id) VALUES ('5', 'Pedro', 'Sánchez', '13579', '8888888888', 'pedrosanchez@example.com', '3');
+
+
+
+
