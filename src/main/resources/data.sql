@@ -77,9 +77,9 @@ INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('21
 INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('22', '17');
 
 -- Tabla de roles
-INSERT INTO rol (id, nombre, descripcion) VALUES ('1', 'Docente', 'Docente de la facultad');
-INSERT INTO rol (id, nombre, descripcion) VALUES ('2', 'Estudiante', 'Estudiante de la facultad');
-INSERT INTO rol (id, nombre, descripcion) VALUES ('3', 'Administrador', 'Administrador del sistema');
+INSERT INTO rol (id, nombre, descripcion, color) VALUES ('1', 'Docente', 'Docente de la facultad', 'Rojo');
+INSERT INTO rol (id, nombre, descripcion, color) VALUES ('2', 'Estudiante', 'Estudiante de la facultad', 'Azul');
+INSERT INTO rol (id, nombre, descripcion, color) VALUES ('3', 'Administrador', 'Administrador del sistema', 'Verde');
 
 
 -- Tabla de solicitantes
@@ -89,6 +89,18 @@ INSERT INTO solicitante (id, nombre, apellido, legajo, nro_telefono, email, rol_
 INSERT INTO solicitante (id, nombre, apellido, legajo, nro_telefono, email, rol_id) VALUES ('4', 'Ana', 'López', '24680', '7777777777', 'analorez@example.com', '2');
 INSERT INTO solicitante (id, nombre, apellido, legajo, nro_telefono, email, rol_id) VALUES ('5', 'Pedro', 'Sánchez', '13579', '8888888888', 'pedrosanchez@example.com', '3');
 
+-- Tabla de ambitos
+INSERT INTO ambito (id, nombre) VALUES ('1', 'Reserva');
+INSERT INTO ambito (id, nombre) VALUES ('2', 'Espacio físico');
 
+-- Tabla de estados
+INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('1', 'Pendiente', 'Rojo', '1');
+INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('2', 'Aprobada', 'Amarillo', '1');
+INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('3', 'Rechazada', 'Verde', '1');
+INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('4', 'Cancelada', 'Azul', '1');
+INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('5', 'Finalizada', 'Naranja', '1');
+INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('6', 'Disponible', 'Rosa', '2');
+INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('7', 'Ocupado', 'Marrón', '2');
+INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('8', 'Inhabilitado', 'Gris', '2');
 
 
