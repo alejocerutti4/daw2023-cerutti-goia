@@ -17,7 +17,6 @@ public class Solicitante extends ObjectoDB{
     private String nroTelefono;
     private String email;
     private int legajo;
-
     @ManyToOne
     private Rol rol;
 }
