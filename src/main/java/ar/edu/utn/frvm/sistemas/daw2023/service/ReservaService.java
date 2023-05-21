@@ -16,26 +16,28 @@ public class ReservaService implements IReservaService{
 
     @Override
     public Reserva getById(Integer id) {
-        return null;
+        return reservaRepository.findById(id).orElse(null);
     }
 
     @Override
     public Reserva add(Reserva reserva) {
-        return null;
+        return reservaRepository.save(reserva);
     }
 
     @Override
     public Reserva update(Integer id, Reserva reserva) {
-        return null;
+        reserva.setId(id);
+        return reservaRepository.save(reserva);
     }
 
     @Override
     public String delete(Integer id) {
-        return null;
+        reservaRepository.deleteById(id);
+        return "Reserva eliminada con id: " + id + ".";
     }
 
     @Override
     public Page<Reserva> getAll(Pageable p) {
-        return null;
+        return reservaRepository.findAll(p);
     }
 }

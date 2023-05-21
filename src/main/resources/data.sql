@@ -103,4 +103,24 @@ INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('6', 'Disponible', 'Ro
 INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('7', 'Ocupado', 'Marrón', '2');
 INSERT INTO estado (id, nombre, color, ambito_id) VALUES ('8', 'Inhabilitado', 'Gris', '2');
 
+-- Tabla de reservas
 
+/*private LocalDateTime fechaHoraCreacionReserva;
+    private LocalDateTime fechaHoraInicioReserva;
+    private LocalDateTime fechaHoraFinReserva;
+    private String comentario;
+    private String motivoReserva;
+    private String motivoRechazo;
+    private int cantidadPersonas;
+
+    @ManyToOne
+private Solicitante solicitante;
+
+    @ManyToOne
+private EspacioFisico espacioFisico;
+
+    @ManyToOne
+private Estado estado;*/
+
+INSERT INTO reserva (id, fecha_hora_creacion_reserva, fecha_hora_inicio_reserva, fecha_hora_fin_reserva, comentario, motivo_reserva, motivo_rechazo, cantidad_personas, solicitante_id, espacio_fisico_id, estado_id) VALUES ('1', '2023-05-21 10:00:00', '2023-05-21 10:00:00', '2023-05-21 12:00:00', 'Comentario 1', 'Motivo reserva 1', '', '10', '1', '1', '1');
+INSERT INTO reserva (id, fecha_hora_creacion_reserva, fecha_hora_inicio_reserva, fecha_hora_fin_reserva, comentario, motivo_reserva, motivo_rechazo, cantidad_personas, solicitante_id, espacio_fisico_id, estado_id) VALUES ('2', '2023-05-21 11:32:02', '2023-05-21 14:00:00', '2023-05-21 15:00:00', 'Comentario 2', 'Motivo reserva 2', '', '10', '1', '2', '1');
