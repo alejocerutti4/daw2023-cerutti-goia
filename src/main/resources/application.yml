@@ -1,17 +1,3 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/reservas_app
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        format_sql: true
-  flyway:
-    locations: classpath:db/migration
-    enabled: false
-  database: postgresql
-  database-platform: org.hibernate.dialect.PostgreSQLDialect
+  profiles:
+    default: dev
