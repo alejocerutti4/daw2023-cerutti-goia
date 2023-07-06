@@ -23,6 +23,11 @@ public class EspacioFisicoService implements IEspacioFisicoService{
     }
 
     @Override
+    public List<EspacioFisico> getAll() {
+        return espacioFisicoRepository.findAll();
+    }
+
+    @Override
     public EspacioFisico getById(Integer id) {
         return espacioFisicoRepository.findById(id).orElse(null);
     }

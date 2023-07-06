@@ -11,11 +11,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/espaciosFisicos/")
+@CrossOrigin(origins = "*")
 public class EspacioFisicoController {
     private final IEspacioFisicoService espacioFisicoService;
 
     public EspacioFisicoController(IEspacioFisicoService espacioFisicoService) {
         this.espacioFisicoService = espacioFisicoService;
+    }
+
+    @GetMapping("/all")
+    public List<EspacioFisico> getAll() {
+        return this.espacioFisicoService.getAll();
     }
 
     @GetMapping
