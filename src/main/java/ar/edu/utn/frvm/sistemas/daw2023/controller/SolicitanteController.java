@@ -1,11 +1,14 @@
 package ar.edu.utn.frvm.sistemas.daw2023.controller;
 
 import ar.edu.utn.frvm.sistemas.daw2023.exception.CustomException;
+import ar.edu.utn.frvm.sistemas.daw2023.model.EspacioFisico;
 import ar.edu.utn.frvm.sistemas.daw2023.model.Solicitante;
 import ar.edu.utn.frvm.sistemas.daw2023.service.ISolicitanteService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/solicitantes/")
@@ -15,6 +18,12 @@ public class SolicitanteController {
     public SolicitanteController(ISolicitanteService solicitanteService){
         this.solicitanteService = solicitanteService;
     }
+
+    @GetMapping("/all")
+    public List<Solicitante> getAll() {
+        return this.solicitanteService.getAll();
+    }
+
     @GetMapping
     public Page<Solicitante> getAll(Pageable page){
         return this.solicitanteService.getAll(page);

@@ -43,4 +43,8 @@ public class SolicitanteService implements ISolicitanteService{
     public Page<Solicitante> getAll(Pageable page) {
         return this.solicitanteRepository.findAll(page);
     }
+    @Override
+    public List<Solicitante> getAll() {
+        return this.solicitanteRepository.findAll();
+    }
 }
