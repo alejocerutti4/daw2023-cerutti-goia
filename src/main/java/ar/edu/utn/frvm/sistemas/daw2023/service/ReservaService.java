@@ -59,8 +59,25 @@ public class ReservaService implements IReservaService{
 
     @Override
     public Reserva update(Integer id, Reserva reserva) {
-        reserva.setId(id);
-        return reservaRepository.save(reserva);
+        try {
+            reserva.setId(id);
+            // Populate associated entities before saving
+            EspacioFisico espacioFisico = espacioFisicoService.getById(reserva.getEspacioFisico().getId());
+            Solicitante solicitante = solicitanteService.getById(reserva.getSolicitante().getId());
+            Estado estado = estadoService.getById(reserva.getEstado().getId());
+            if(reserva.getRecursosSolicitados() != null){
+                List<Recurso> recursos = reserva.getRecursosSolicitados().stream().map(recurso -> recursoService.getById(recurso.getId())).collect(Collectors.toList());
+                reserva.setRecursosSolicitados(recursos);
+            }
+
+            reserva.setEspacioFisico(espacioFisico);
+            reserva.setSolicitante(solicitante);
+            reserva.setEstado(estado);
+
+            return reservaRepository.save(reserva);
+        } catch (Exception e) {
+            throw new CustomException(400, "No se pudo actualizar la reserva");
+        }
     }
 
     @Override
