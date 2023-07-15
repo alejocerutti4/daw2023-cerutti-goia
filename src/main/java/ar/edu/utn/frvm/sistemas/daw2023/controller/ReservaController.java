@@ -38,7 +38,8 @@ public class ReservaController {
     public ResponseEntity<Object> add(@RequestBody Reserva reserva) {
         try {
             Reserva addedReserva = this.reservaService.add(reserva);
-            return ResponseEntity.ok(addedReserva);
+            Reserva newReserva = this.reservaService.getById(addedReserva.getId());
+            return ResponseEntity.ok(newReserva);
         } catch (Exception e) {
             ErrorResponse errorResponse = new ErrorResponse(42, e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
@@ -51,8 +52,11 @@ public class ReservaController {
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Integer id){
-        return this.reservaService.delete(id);
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
+        reservaService.delete(id);
+        String responseMessage = "Reserva eliminada con id: " + id + ".";
+        return ResponseEntity.ok().body("{\"message\": \"" + responseMessage + "\"}");
     }
+
 
 }
