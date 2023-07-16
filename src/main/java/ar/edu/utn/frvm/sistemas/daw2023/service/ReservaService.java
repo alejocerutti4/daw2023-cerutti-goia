@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,19 +37,27 @@ public class ReservaService implements IReservaService{
 
     @Override
     public Reserva add(Reserva reserva) {
-        if (estaDisponible(reserva.getEspacioFisico().getId()) & !haySuperposicionHoraria(reserva)) {
-            // Populate associated entities before saving
-            EspacioFisico espacioFisico = espacioFisicoService.getById(reserva.getEspacioFisico().getId());
-            Solicitante solicitante = solicitanteService.getById(reserva.getSolicitante().getId());
-            Estado estado = estadoService.getById(reserva.getEstado().getId());
+        if (estaDisponible(reserva.getEspacioFisico().getId()) && !haySuperposicionHoraria(reserva)) {
+
+            if(reserva.getEstado() != null){
+                Estado estado = estadoService.getById(1);
+                reserva.setEstado(estado);
+            }
+
             if(reserva.getRecursosSolicitados() != null){
                 List<Recurso> recursos = reserva.getRecursosSolicitados().stream().map(recurso -> recursoService.getById(recurso.getId())).collect(Collectors.toList());
                 reserva.setRecursosSolicitados(recursos);
             }
 
-            reserva.setEspacioFisico(espacioFisico);
-            reserva.setSolicitante(solicitante);
-            reserva.setEstado(estado);
+            if( reserva.getEspacioFisico() != null) {
+                EspacioFisico espacioFisico = espacioFisicoService.getById(reserva.getEspacioFisico().getId());
+                reserva.setEspacioFisico(espacioFisico);
+            }
+
+            if (reserva.getSolicitante() != null) {
+                Solicitante solicitante = solicitanteService.getById(reserva.getSolicitante().getId());
+                reserva.setSolicitante(solicitante);
+            }
 
             return reservaRepository.save(reserva);
         } else {
@@ -60,20 +69,27 @@ public class ReservaService implements IReservaService{
     @Override
     public Reserva update(Integer id, Reserva reserva) {
         try {
-            if (estaDisponible(reserva.getEspacioFisico().getId()) & !haySuperposicionHoraria(reserva)){
-                reserva.setId(id);
-                // Populate associated entities before saving
-                EspacioFisico espacioFisico = espacioFisicoService.getById(reserva.getEspacioFisico().getId());
-                Solicitante solicitante = solicitanteService.getById(reserva.getSolicitante().getId());
-                Estado estado = estadoService.getById(reserva.getEstado().getId());
+            reserva.setId(id);
+            if (estaDisponible(reserva.getEspacioFisico().getId()) && !haySuperposicionHoraria(reserva)){
+                if(reserva.getEstado() != null){
+                    Estado estado = estadoService.getById(reserva.getEstado().getId());
+                    reserva.setEstado(estado);
+                }
+
                 if(reserva.getRecursosSolicitados() != null){
                     List<Recurso> recursos = reserva.getRecursosSolicitados().stream().map(recurso -> recursoService.getById(recurso.getId())).collect(Collectors.toList());
                     reserva.setRecursosSolicitados(recursos);
                 }
 
-                reserva.setEspacioFisico(espacioFisico);
-                reserva.setSolicitante(solicitante);
-                reserva.setEstado(estado);
+                if( reserva.getEspacioFisico() != null) {
+                    EspacioFisico espacioFisico = espacioFisicoService.getById(reserva.getEspacioFisico().getId());
+                    reserva.setEspacioFisico(espacioFisico);
+                }
+
+                if (reserva.getSolicitante() != null) {
+                    Solicitante solicitante = solicitanteService.getById(reserva.getSolicitante().getId());
+                    reserva.setSolicitante(solicitante);
+                }
 
                 return reservaRepository.save(reserva);
             }else
@@ -108,9 +124,8 @@ public class ReservaService implements IReservaService{
     @Override
     public boolean haySuperposicionHoraria(Reserva reserva) {
         List<Reserva> reservasExistentesDelMismoEspacio = this.getByEspacioId(reserva.getEspacioFisico().getId());
-
         for (Reserva reservaExistente : reservasExistentesDelMismoEspacio) {
-            if (reservasSeSuperponen(reserva, reservaExistente) && reserva.getId() != reservaExistente.getId()) {
+            if (reservasSeSuperponen(reserva, reservaExistente) && !Objects.equals(reserva.getId(), reservaExistente.getId())) {
                 // Si hay superposición horaria, retorna true
                 return true;
             }
