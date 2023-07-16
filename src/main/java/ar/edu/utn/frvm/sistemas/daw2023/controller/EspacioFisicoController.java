@@ -5,6 +5,7 @@ import ar.edu.utn.frvm.sistemas.daw2023.model.EspacioFisico;
 import ar.edu.utn.frvm.sistemas.daw2023.service.IEspacioFisicoService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,7 +65,8 @@ public class EspacioFisicoController {
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Integer id){
-        return this.espacioFisicoService.delete(id);
+    public  ResponseEntity<String> delete(@PathVariable Integer id){
+        String responseMessage = this.espacioFisicoService.delete(id);
+        return ResponseEntity.ok().body("{\"message\": \"" + responseMessage + "\"}");
     }
 }

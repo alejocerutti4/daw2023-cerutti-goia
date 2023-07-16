@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/estados/")
+@CrossOrigin(origins = "*")
 public class EstadoController {
     private final IEstadoService estadoService;
 

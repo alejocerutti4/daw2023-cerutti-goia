@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/recursos/")
+@CrossOrigin(origins = "*")
 public class RecursoController {
 
     private final IRecursoService recursoService;

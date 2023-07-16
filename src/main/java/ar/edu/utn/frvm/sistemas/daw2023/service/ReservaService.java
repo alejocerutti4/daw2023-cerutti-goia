@@ -149,4 +149,6 @@ public class ReservaService implements IReservaService{
     public List<Reserva> getByEspacioId(Integer id){
         return reservaRepository.getReservasByEspacioFisicoId(id);
     }
+
+
 }
