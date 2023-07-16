@@ -60,6 +60,10 @@ public class ReservaService implements IReservaService{
             }
 
             return reservaRepository.save(reserva);
+        } else if (!estaDisponible(reserva.getEspacioFisico().getId())) {
+            throw new CustomException(50, "Espacio Fisico no disponible");
+        } else if (haySuperposicionHoraria(reserva)) {
+            throw new CustomException(51, "Hay superposicion horaria con otra reserva ya hecha");
         } else {
             throw new CustomException(400, "No se pudo realizar la reserva");
         }
@@ -68,34 +72,35 @@ public class ReservaService implements IReservaService{
 
     @Override
     public Reserva update(Integer id, Reserva reserva) {
-        try {
-            reserva.setId(id);
-            if (estaDisponible(reserva.getEspacioFisico().getId()) && !haySuperposicionHoraria(reserva)){
-                if(reserva.getEstado() != null){
-                    Estado estado = estadoService.getById(reserva.getEstado().getId());
-                    reserva.setEstado(estado);
-                }
+        reserva.setId(id);
+        if (estaDisponible(reserva.getEspacioFisico().getId()) && !haySuperposicionHoraria(reserva)) {
+            if (reserva.getEstado() != null) {
+                Estado estado = estadoService.getById(reserva.getEstado().getId());
+                reserva.setEstado(estado);
+            }
 
-                if(reserva.getRecursosSolicitados() != null){
-                    List<Recurso> recursos = reserva.getRecursosSolicitados().stream().map(recurso -> recursoService.getById(recurso.getId())).collect(Collectors.toList());
-                    reserva.setRecursosSolicitados(recursos);
-                }
+            if (reserva.getRecursosSolicitados() != null) {
+                List<Recurso> recursos = reserva.getRecursosSolicitados().stream().map(recurso -> recursoService.getById(recurso.getId())).collect(Collectors.toList());
+                reserva.setRecursosSolicitados(recursos);
+            }
 
-                if( reserva.getEspacioFisico() != null) {
-                    EspacioFisico espacioFisico = espacioFisicoService.getById(reserva.getEspacioFisico().getId());
-                    reserva.setEspacioFisico(espacioFisico);
-                }
+            if (reserva.getEspacioFisico() != null) {
+                EspacioFisico espacioFisico = espacioFisicoService.getById(reserva.getEspacioFisico().getId());
+                reserva.setEspacioFisico(espacioFisico);
+            }
 
-                if (reserva.getSolicitante() != null) {
-                    Solicitante solicitante = solicitanteService.getById(reserva.getSolicitante().getId());
-                    reserva.setSolicitante(solicitante);
-                }
+            if (reserva.getSolicitante() != null) {
+                Solicitante solicitante = solicitanteService.getById(reserva.getSolicitante().getId());
+                reserva.setSolicitante(solicitante);
+            }
 
-                return reservaRepository.save(reserva);
-            }else
-                throw new CustomException(400, "No se pudo actualizar la reserva");
-        } catch (Exception e) {
-            throw new CustomException(400, "No se pudo actualizar la reserva");
+            return reservaRepository.save(reserva);
+        } else if (!estaDisponible(reserva.getEspacioFisico().getId())) {
+            throw new CustomException(50, "Espacio Fisico no disponible");
+        } else if (haySuperposicionHoraria(reserva)) {
+            throw new CustomException(51, "Hay superposicion horaria con otra reserva ya hecha");
+        } else {
+            throw new CustomException(400, "No se pudo realizar la reserva");
         }
     }
 

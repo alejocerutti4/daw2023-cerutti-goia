@@ -40,15 +40,20 @@ public class ReservaController {
             Reserva addedReserva = this.reservaService.add(reserva);
             Reserva newReserva = this.reservaService.getById(addedReserva.getId());
             return ResponseEntity.ok(newReserva);
-        } catch (Exception e) {
-            ErrorResponse errorResponse = new ErrorResponse(42, e.getMessage());
+        } catch (CustomException e) {
+            ErrorResponse errorResponse = new ErrorResponse(e.getErrorCode(), e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
 
     @PutMapping("/{id}")
-    public Reserva update(@PathVariable Integer id, @RequestBody Reserva reserva){
-        return this.reservaService.update(id, reserva);
+    public ResponseEntity<Object> update(@PathVariable Integer id, @RequestBody Reserva reserva){
+        try {
+            return ResponseEntity.ok(this.reservaService.update(id, reserva));
+        } catch (CustomException e) {
+            ErrorResponse errorResponse = new ErrorResponse(e.getErrorCode(), e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 
     @DeleteMapping("/{id}")
