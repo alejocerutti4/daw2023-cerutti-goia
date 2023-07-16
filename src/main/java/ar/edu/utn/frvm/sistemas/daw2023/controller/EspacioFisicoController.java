@@ -55,13 +55,17 @@ public class EspacioFisicoController {
     }
 
     @PostMapping
-    public EspacioFisico add(@RequestBody EspacioFisico espacioFisico){
-        return this.espacioFisicoService.add(espacioFisico);
+    public ResponseEntity<EspacioFisico> add(@RequestBody EspacioFisico espacioFisico){
+        this.espacioFisicoService.add(espacioFisico);
+        EspacioFisico newEspacioFisico = espacioFisicoService.getById(espacioFisico.getId());
+        return ResponseEntity.ok(newEspacioFisico);
     }
 
     @PutMapping("/{id}")
-    public EspacioFisico update(@PathVariable Integer id, @RequestBody EspacioFisico espacioFisico){
-        return this.espacioFisicoService.update(id, espacioFisico);
+    public ResponseEntity<EspacioFisico> update(@PathVariable Integer id, @RequestBody EspacioFisico espacioFisico){
+        this.espacioFisicoService.update(id, espacioFisico);
+        EspacioFisico newEspacioFisico = espacioFisicoService.getById(espacioFisico.getId());
+        return ResponseEntity.ok(newEspacioFisico);
     }
 
     @DeleteMapping("/{id}")
