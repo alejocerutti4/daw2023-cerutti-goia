@@ -40,4 +40,9 @@ public class RecursoService implements IRecursoService{
     public Page<Recurso> getAll(Pageable p){
         return this.recursoRepository.findAll(p);
     }
+
+    @Override
+    public List<Recurso> getAll() {
+        return this.recursoRepository.findAll();
+    }
 }
